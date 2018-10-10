@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from '../components/Button/Button'
 import LoginModal from '../components/Modals/LoginModal'
 import HeaderWrapper from '../components/HeaderWrapper'
 import NavWrapper from '../components/NavWrapper'
+import Wrapper from '../layouts/Wrapper'
+import '../index.css'
 
 const Title = styled.h2`
   font-size: 2em;
@@ -30,21 +31,16 @@ class Header extends React.PureComponent {
   
   render(){
     return (
-      <div>
         <HeaderWrapper >
-          <Title>Welcome to Travel Reviews</Title>
-        <NavWrapper>
-        { this.state.show ? 
-          <LoginModal handleClose={this.hideModal}>
-          </LoginModal>
-          : null }
-          <Button type="button" onClick={this.showModal}>Login</Button>
-          <Button type="button" onClick={this.showModal}>Register</Button>
-        </NavWrapper>
         </HeaderWrapper>
-      </div>
     )
   }
 }
+{/* <Button type="button" onClick={this.showModal}>Login</Button>
+<Button type="button" onClick={this.showModal}>Register</Button> */}
+// { this.state.show ? 
+//   <LoginModal handleClose={this.hideModal}>
+//   </LoginModal>
+//   : null }
 
 export default Header
