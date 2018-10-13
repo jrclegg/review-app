@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import Header from '../components/Header'
 import Button from '../components/Button/Button'
+import Facebook from '../components/Facebook';
 
 const LeftDiv = styled.div`
  float: left;
@@ -11,7 +12,7 @@ const RightDiv = styled.div`
  float: right;
 `
 const FacebookStyle = {
- backgroundColor: '#3897f0',
+ backgroundColor: '#4267B2',
 };
 
 const TwitterStyle = {
@@ -29,7 +30,8 @@ const Home = () => (
          <LeftDiv>
          </LeftDiv>
         <RightDiv>
-        <Button type="button" style={FacebookStyle}>Login with Facebook</Button>
+        <Button type="button" style={FacebookStyle}>Continue with Facebook</Button>
+        <Facebook/>
         <Button type="button" style={TwitterStyle}>Login with Twitter</Button>
         <Button type="button" style={LinkedInStyle}>Login with LinkedIn</Button>
         {/* <Button type="button">Login</Button>
@@ -37,6 +39,5 @@ const Home = () => (
         </RightDiv>
         </div>
 )
-
 
 export default Home
