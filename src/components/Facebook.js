@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
-import styled from 'styled-components';
-
-const myDiv = styled.div`
-    width: "400px";
-    margin: "auto";
-    background: '#f4f4f4';
-    padding: '20px';
-`
+import { Redirect } from 'react-router-dom'
 
 export default class Facebook extends Component {
-    state = {
-        isLoggedIn: false,
-        userID: '',
-        name: '',
-        email: '',
-        picture: ''
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: false,
+            userID: '',
+            name: '',
+            email: '',
+            picture: ''
+           
+        };
+      }
 
-    }
 
     responseFacebook = response => {
         this.setState({
@@ -27,6 +24,7 @@ export default class Facebook extends Component {
             email: response.email,
             picture: response.picture.data.url
         })
+        console.log(response)
     }
     componentClicked = () => console.log()
 
@@ -35,20 +33,24 @@ export default class Facebook extends Component {
 
         if (this.state.isLoggedIn) {
             fbContent = (
-                <myDiv>
-                <img src={this.state.picture} alt={this.state.name}/>
-                    <h2>Welcome {this.state.name}</h2>
-                    Email: {this.state.email}
-                </myDiv>
+                <Redirect to="/home">
+                    <FacebookLogin
+                    appId="1689199874542550"
+                    autoLoad={false}
+                    version="3.1"
+                    fields="name,email,picture"
+                    onClick={this.componentClicked}
+                    callback={this.responseFacebook} />
+                </Redirect>
             );
         } else {
             fbContent = (<FacebookLogin
                 appId="1689199874542550"
-                autoLoad={true}
+                autoLoad={false}
+                version="3.1"
                 fields="name,email,picture"
                 onClick={this.componentClicked}
                 callback={this.responseFacebook} />)
-
         }
         return (
             <div>{fbContent}</div>

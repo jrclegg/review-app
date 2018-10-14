@@ -23,21 +23,19 @@ const LinkedInStyle = {
  backgroundColor: '#0077B5',
 };
 
-const Home = () => (
+const Login = () => (
         <div>
          <Header>
          </Header>
          <LeftDiv>
          </LeftDiv>
         <RightDiv>
-        <Button type="button" style={FacebookStyle}>Continue with Facebook</Button>
-        <Facebook/>
-        <Button type="button" style={TwitterStyle}>Login with Twitter</Button>
-        <Button type="button" style={LinkedInStyle}>Login with LinkedIn</Button>
-        {/* <Button type="button">Login</Button>
-        <Button type="button">Register</Button> */}
+         <Button type="button" style={FacebookStyle}>Continue with Facebook</Button>
+         <Facebook/>
+         <Button type="button" style={TwitterStyle}>Login with Twitter</Button>
+         <Button type="button" style={LinkedInStyle}>Login with LinkedIn</Button>
         </RightDiv>
         </div>
 )
 
-export default Home
+export default Login

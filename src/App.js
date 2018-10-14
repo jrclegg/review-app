@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
-import Home from './pages/HomePage';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Login from './pages/Login';
+import Home from './pages/Home';
 
 class App extends Component {
   render() {
     return (
-        <Home/>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" component={Login} exact/>
+          <Route path="/home" component={Home}/>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
