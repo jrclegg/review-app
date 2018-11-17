@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
-import { Redirect } from 'react-router-dom'
 
 export default class Facebook extends Component {
     constructor(props) {
@@ -14,8 +13,6 @@ export default class Facebook extends Component {
            
         };
       }
-
-
     responseFacebook = response => {
         this.setState({
             isLoggedIn: true,
@@ -24,26 +21,26 @@ export default class Facebook extends Component {
             email: response.email,
             picture: response.picture.data.url
         })
-        console.log(response)
+        console.log(this.state.isLoggedIn)
     }
-    componentClicked = () => console.log()
+    componentClicked = () => console.log('clicked')
+
 
     render() {
         let fbContent;
-
         if (this.state.isLoggedIn) {
             fbContent = (
-                <Redirect to="/home">
-                    <FacebookLogin
-                    appId="1689199874542550"
-                    autoLoad={false}
-                    version="3.1"
-                    fields="name,email,picture"
-                    onClick={this.componentClicked}
-                    callback={this.responseFacebook} />
-                </Redirect>
+                <div style={{
+                    width:'400px',
+                    margin: 'auto',
+                    background: '#f4f4f4',
+                    padding: '20px'
+                }}>
+                <img src={this.state.picture} alt={this.state.name} />
+                <h2>Welcome {this.state.name}</h2>
+                </div>
             );
-        } else {
+        } else if (!this.state.isLoggedIn) {
             fbContent = (<FacebookLogin
                 appId="1689199874542550"
                 autoLoad={false}
