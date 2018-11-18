@@ -2,10 +2,10 @@
 import styled from 'styled-components'
 
 const Button = styled.button`
-  background: red;
-  padding: 20px;
-  margin: 30px;
-  width: 200px;
+  background: blue;
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 50%;
   display: flex;
 `
 export default Button
